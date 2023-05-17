@@ -16,13 +16,21 @@ class Post(models.Model):
     contents = models.TextField()
 
 
+class Category(models.Model):
+    cate_id = models.IntegerField(primary_key=True, auto_created=True)
+    large_category = models.CharField(max_length=200)
+    middle_category = models.CharField(max_length=200)
+    detail_category = models.CharField(max_length=200)
+
+
 class ViewLog(models.Model):
-    post_id = models.OneToOneField(Post, on_delete=models.CASCADE)
-    emp_id = models.OneToOneField(Employee, on_delete=models.CASCADE)
-    log_time = models.DateTimeField(auto_created=True)
+    post_id = models.ManyToManyField(Post)
+    emp_id = models.ManyToManyField(Employee)
+    cate_id = models.ManyToManyField(Category)
+    log_time = models.DateTimeField(auto_now=True)
 
 
 class SearchLog(models.Model):
-    emp_id = models.OneToOneField(Employee, on_delete=models.CASCADE)
+    emp_id = models.ManyToManyField(Employee)
     keyword = models.CharField(max_length=200)
-    log_time = models.DateTimeField(auto_created=True)
+    log_time = models.DateTimeField(auto_now=True)
