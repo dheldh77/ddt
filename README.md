@@ -52,23 +52,32 @@ vim launch.json # 아래 script 작성 후 저장
 --------------------------------------------------------------------------------------------
 
 ### 제공 API (추가 예정)
-1. 잡 포스팅 전체 조회
-- /list_post/
+1. 유저 조회
+- get : /detial_employee/<str:emp_id>/
+
+2. 잡 포스팅 전체 조회
+- get : /list_post/
 
 2. 잡 포스팅 조회
-- /detail_post/<int:post_id>/
+- get : /detail_post/<int:post_id>/
 
 3. 키워드로 잡 포스팅 조회
-- /search_post?keyword=/
+- get : /search_post?keyword=/
 
 4. 유저 직무 정보 기반 잡 포스팅 추천
-- /recommand_by_job/
+- get : /recommand_by_job/
 
 5. 유저 log(view) 기반 잡 포스팅 추천
-- /recommand_by_view_log/
+- get : /recommand_by_view_log/
 
-6. 유저 log(search) 기반 잡 포스팅 추천
-- /recommand_by_search_log/
+6. 유저 log(view) 저장
+- post : /recommand_by_view_log/
 
-7. 키워드 팔로우 기반 잡 포스팅 추천
-- /recommand_by_follow/
+7. 유저 log(search) 기반 잡 포스팅 추천
+- get : /recommand_by_search_log/
+
+8. 유저 log(searcb) 저장
+- post : /recommand_by_search_log/
+
+9. 키워드 팔로우 기반 잡 포스팅 추천
+- get : /recommand_by_follow/
